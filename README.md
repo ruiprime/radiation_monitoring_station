@@ -1,6 +1,6 @@
 # Radiation_Monitoring_Station
 ### 最近7天监测数据
-![Dose Rate](./dose_vs_time.svg)
+![Dose Rate](./public/assets/dose_vs_time.svg)
 
 本监测站的监测数据是通过仪器监测直接获取所得，可能由于停电，断网等现象导致监测异常，所以本监测站的数据仅作为参考，最终数据以官方正式报告为准。
 
