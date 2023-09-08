@@ -26,7 +26,9 @@ jobs:
         pip install -r requirements.txt  
 
     - name: Run radiation_plot
-      run: python plot.py  
+      run:
+          mkdir -p public/assets
+          python plot.py  
 
     - name: Commit and push changes (if dose_vs_time.svg is generated)
       run: |
