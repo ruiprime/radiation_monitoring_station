@@ -22,7 +22,7 @@ def dose_plot():
         clean_data = {'time': date_time, 'SensorID': point['sensor_id'], 'CPM': point['CPM'], 'Dose': point['Dose']}
         new_data.append(clean_data)
 
-    # 提取时间和Dose数据
+    
     times = [entry['time'] for entry in new_data]
     dose_rate = [float(entry['Dose']) for entry in new_data]
 
