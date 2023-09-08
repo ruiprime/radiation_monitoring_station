@@ -1,0 +1,40 @@
+name: radiation_plot update
+
+on:
+  schedule:
+    - cron: '0 */3 * * *'  # 每6小时运行一次
+
+jobs:
+  run-python:
+    runs-on: ubuntu-latest  
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2  
+
+    - name: Set up Python
+      uses: actions/setup-python@v2  
+      with:
+        python-version: 3.9  
+
+    - name: Set up MongoDB connection string
+      run: echo "DB_CONNECTION_STRING=${{ secrets.MONGODB_URL }}" >> $GITHUB_ENV
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt  
+
+    - name: Run radiation_plot
+      run: python plot.py  
+
+    - name: Commit and push changes (if dose_vs_time.svg is generated)
+      run: |
+        timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+        commit_message="Update dose_vs_time.svg - $timestamp"
+        cd public/assets
+        git config --local user.email "biowr@qq.com"
+        git config --local user.name "ruiprime"
+        git add dose_vs_time.svg
+        git commit -m "$commit_message"
+        git push origin main  
+      
