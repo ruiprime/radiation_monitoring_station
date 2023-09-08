@@ -11,7 +11,7 @@ client = MongoClient(db_connection_string)  # 根据实际情况更改连接字�
 db = client['radiation']
 collection = db['radiation']
 
-
+# 
 def dose_plot():
     data = list(collection.find().sort([("_id", pymongo.DESCENDING)]).limit(28))
     new_data = []
