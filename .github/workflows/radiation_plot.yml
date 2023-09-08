@@ -1,5 +1,9 @@
 name: radiation_plot update
 
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   run-python:
