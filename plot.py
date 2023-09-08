@@ -43,6 +43,6 @@ def dose_plot():
     plt.xticks(times, rotation=90)  # 旋转横坐标标签以避免重叠
     plt.grid(True)
 
-    plt.savefig('dose_vs_time.svg', format='svg')
+    plt.savefig('public/assets/dose_vs_time.svg', format='svg')
 
 dose_plot()
