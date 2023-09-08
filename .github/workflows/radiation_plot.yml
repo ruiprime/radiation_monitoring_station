@@ -25,11 +25,13 @@ jobs:
       run: |
         pip install -r requirements.txt  
 
+    - name: mkdir dir
+      run:
+          mkdir -p public/assets  
     - name: Run radiation_plot
       run:
-          mkdir -p public/assets
           python plot.py  
-
+      
     - name: Commit and push changes (if dose_vs_time.svg is generated)
       run: |
         timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
