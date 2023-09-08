@@ -1,8 +1,5 @@
 name: radiation_plot update
 
-on:
-  # schedule:
-  #   - cron: '0 */3 * * *'  # 每6小时运行一次
 
 jobs:
   run-python:
