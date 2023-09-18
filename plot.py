@@ -42,6 +42,15 @@ def dose_plot():
     plt.xticks(times, rotation=90)  # 旋转横坐标标签以避免重叠
     plt.grid(True)
 
+    # 添加y轴参考线
+    plt.axhline(y=0.13, color='blue', linestyle='--', label='Reference Line: 0.13 μSv/h')
+    # 添加y轴参考线
+    plt.axhline(y=0.5, color='red', linestyle='--', label='Reference Line: 0.5 μSv/h')
+
+    # 添加图示文本
+    plt.text(0.75, 0.83, 'Background level:0.13 μSv/h', fontsize=17, color='blue', transform=plt.gca().transAxes)
+    plt.text(0.75, 0.79, 'Hazard level:0.5 μSv/h', fontsize=17, color='red', transform=plt.gca().transAxes)
+
     plt.savefig('public/assets/dose_vs_time.svg', format='svg')
 
 dose_plot()
